@@ -4,9 +4,8 @@
 #include <QObject>
 #include <QDateTime>
 
-class Token : public QObject
+class Token
 {
-    Q_OBJECT
 private:
     QString token;
     quint16 value;
@@ -14,8 +13,8 @@ private:
     bool tainted;
 
 public:
-    explicit Token(QObject *parent = 0);
-    Token(const QString &token, quint16 value, const QDateTime &timestamp, bool tainted = false, QObject *p = 0);
+    Token();
+    Token(const QString &token, quint16 value, const QDateTime &timestamp, bool tainted = false);
     Token(const Token &other);
 
     inline QString getToken() const { return token; }
@@ -29,12 +28,8 @@ public:
 
     Token &operator =(const Token &other);
     bool operator ==(const Token &other) const { return token == other.getToken(); }
-
-
-signals:
-
-public slots:
-
 };
+
+inline uint qHash(const Token &token);
 
 #endif // TOKEN_H
