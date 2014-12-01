@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     AppController c;
     QObject::connect(&w, SIGNAL(newToken(Token)), &c, SLOT(addToken(Token)));
+    QObject::connect(&w, SIGNAL(taintToken(Token)), &c, SLOT(taintToken(Token)));
     QObject::connect(&c, SIGNAL(balanceChanged(quint16)), &w, SLOT(setNewBalance(quint16)));
     w.show();
 

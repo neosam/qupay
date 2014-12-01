@@ -25,9 +25,23 @@
        </widget>
       </item>
       <item>
-       <widget class="QLCDNumber" name="balanceDisplay"/>
+       <widget class="QLCDNumber" name="balanceDisplay">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -76,14 +90,38 @@
         </item>
        </layout>
       </item>
-      <item>
-       <widget class="QPushButton" name="pushButton">
+     </layout>
+    </item>
+    <item>
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QFormLayout" name="formLayout_2">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>something else</string>
+         <string>TokenID</string>
         </property>
        </widget>
       </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="taintTokenIdField"/>
+      </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="taintTokenButton">
+      <property name="text">
+       <string>Taint Token</string>
+      </property>
+     </widget>
     </item>
     <item>
      <spacer name="verticalSpacer">
@@ -109,8 +147,39 @@
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuTEst">
+    <property name="title">
+     <string>TEst</string>
+    </property>
+    <addaction name="actionBla"/>
+   </widget>
+   <widget class="QMenu" name="menuBlub">
+    <property name="title">
+     <string>blub</string>
+    </property>
+    <addaction name="actionFoo"/>
+    <addaction name="separator"/>
+    <addaction name="actionBar"/>
+   </widget>
+   <addaction name="menuTEst"/>
+   <addaction name="menuBlub"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionBla">
+   <property name="text">
+    <string>bla</string>
+   </property>
+  </action>
+  <action name="actionFoo">
+   <property name="text">
+    <string>foo</string>
+   </property>
+  </action>
+  <action name="actionBar">
+   <property name="text">
+    <string>bar</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>
@@ -146,9 +215,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>taintTokenButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>taintToken()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>balanceChanged(int)</signal>
   <slot>addToken()</slot>
+  <slot>taintToken()</slot>
  </slots>
 </ui>

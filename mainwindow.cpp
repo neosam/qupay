@@ -23,3 +23,11 @@ void MainWindow::addToken()
     Token token(tokenId, tokenValue, timestamp);
     emit newToken(token);
 }
+
+void MainWindow::taintToken()
+{
+    QString tokenId = ui.taintTokenIdField->text();
+    Token token;
+    token.setToken(tokenId);
+    emit taintToken(token);
+}

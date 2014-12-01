@@ -29,3 +29,9 @@ void AppController::addToken(const Token &token)
     qDebug() << "AppController::addToken";
     wallet->addToken(token);
 }
+
+void AppController::taintToken(const Token &token)
+{
+    qDebug() << "AppController::taintToken";
+    wallet->taintToken(token);
+}

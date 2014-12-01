@@ -17,10 +17,12 @@ public:
 signals:
     void newToken(const Token &token);
     void balanceChanged(int balance);
+    void taintToken(const Token &token);
 
 public slots:
     void setNewBalance(quint16 balance);
     void addToken();
+    void taintToken();
 
 };
 
