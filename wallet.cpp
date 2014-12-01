@@ -21,6 +21,7 @@ quint32 Wallet::getBalance() {
 
 void Wallet::addToken(const Token &token) {
     tokenHash.insert(token.getToken(), token);
+    emit tokenAdded(token);
 }
 
 void Wallet::addToken(const QList<Token> &tokens) {
@@ -31,7 +32,9 @@ void Wallet::addToken(const QList<Token> &tokens) {
 }
 
 void Wallet::removeToken(const Token &token) {
+    Token storedToken = tokenHash[token.getToken()];
     tokenHash.remove(token.getToken());
+    emit tokenRemoved(storedToken);
 }
 
 void Wallet::removeToken(const QList<Token> &tokens) {

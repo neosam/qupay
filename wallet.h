@@ -21,6 +21,8 @@ public:
     void removeToken(const QList<Token> &tokenList);
 
 signals:
+    void tokenAdded(const Token &);
+    void tokenRemoved(const Token &);
 
 public slots:
 
