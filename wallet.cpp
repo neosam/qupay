@@ -42,3 +42,17 @@ void Wallet::removeToken(const QList<Token> &tokens) {
         removeToken(token);
     }
 }
+
+void Wallet::taintToken(const Token &token) {
+    Token storedToken = tokenHash[token.getToken()];
+    tokenHash.remove(token.getToken());
+    storedToken.setTainted(true);
+    tokenHash.insert(token.getToken(), token);
+    emit tokenTainted(storedToken);
+}
+
+void Wallet::taintToken(const QList<Token> &tokenList) {
+    foreach (Token token, tokenList) {
+        taintToken(token);
+    }
+}

@@ -19,10 +19,14 @@ public:
     void addToken(const QList<Token> &tokenList);
     void removeToken(const Token &token);
     void removeToken(const QList<Token> &tokenList);
+    void taintToken(const Token &token);
+    void taintToken(const QList<Token> &tokenList);
+
 
 signals:
     void tokenAdded(const Token &);
     void tokenRemoved(const Token &);
+    void tokenTainted(const Token &);
 
 public slots:
 
