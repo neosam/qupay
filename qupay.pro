@@ -4,9 +4,11 @@ QT += qml quick widgets
 
 SOURCES += main.cpp \
     token.cpp \
-    wallet.cpp
+    wallet.cpp \
+    mainwindow.cpp \
+    appcontroller.cpp
 
-RESOURCES += qml.qrc
+RESOURCES +=
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -16,4 +18,9 @@ include(deployment.pri)
 
 HEADERS += \
     token.h \
-    wallet.h
+    wallet.h \
+    mainwindow.h \
+    appcontroller.h
+
+FORMS += \
+    mainwindow.ui
