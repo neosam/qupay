@@ -24,6 +24,6 @@ Token &Token::operator =(const Token &other) {
     return *this;
 }
 
-inline uint qHash(const Token &token) {
+uint qHash(const Token &token) {
     return qHash(token.getToken());
 }

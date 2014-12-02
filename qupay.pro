@@ -6,7 +6,8 @@ SOURCES += main.cpp \
     token.cpp \
     wallet.cpp \
     mainwindow.cpp \
-    appcontroller.cpp
+    appcontroller.cpp \
+    transaction.cpp
 
 RESOURCES +=
 
@@ -20,7 +21,8 @@ HEADERS += \
     token.h \
     wallet.h \
     mainwindow.h \
-    appcontroller.h
+    appcontroller.h \
+    transaction.h
 
 FORMS += \
     mainwindow.ui

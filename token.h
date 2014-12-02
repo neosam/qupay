@@ -30,6 +30,6 @@ public:
     bool operator ==(const Token &other) const { return token == other.getToken(); }
 };
 
-inline uint qHash(const Token &token);
+uint qHash(const Token &token);
 
 #endif // TOKEN_H
