@@ -1,5 +1,7 @@
 #include "token.h"
 
+Token nullToken("null", 0, QDateTime());
+
 Token::Token(): token(""), value(0), timestamp(), tainted(false)
 {
 }

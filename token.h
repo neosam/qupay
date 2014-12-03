@@ -32,4 +32,6 @@ public:
 
 uint qHash(const Token &token);
 
+extern Token nullToken;
+
 #endif // TOKEN_H
