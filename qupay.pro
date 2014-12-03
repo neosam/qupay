@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     appcontroller.cpp \
     transaction.cpp \
     upayhttpsbackend.cpp \
-    walletmanager.cpp
+    walletmanager.cpp \
+    walletstorage.cpp
 
 RESOURCES +=
 
@@ -26,7 +27,8 @@ HEADERS += \
     appcontroller.h \
     transaction.h \
     upayhttpsbackend.h \
-    walletmanager.h
+    walletmanager.h \
+    walletstorage.h
 
 FORMS += \
     mainwindow.ui
