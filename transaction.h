@@ -49,4 +49,6 @@ public:
 
 inline uint qHash(const Transaction &tx) { return qHash(tx.getTransactionId()); }
 
+extern Transaction nullTransaction;
+
 #endif // TRANSACTION_H

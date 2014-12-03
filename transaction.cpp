@@ -35,3 +35,5 @@ Transaction &Transaction::operator =(const Transaction &other)
     timestamp = other.timestamp;
     return *this;
 }
+
+Transaction nullTransaction("null", 0, "null");

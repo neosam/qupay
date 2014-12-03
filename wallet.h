@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QHash>
+#include <QList>
 #include "token.h"
 
 class Wallet : public QObject
@@ -21,6 +22,8 @@ public:
     void removeToken(const QList<Token> &tokenList);
     void taintToken(const Token &token);
     void taintToken(const QList<Token> &tokenList);
+
+    QList<Token> getTokens();
 
 
 signals:

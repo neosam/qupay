@@ -56,3 +56,9 @@ void Wallet::taintToken(const QList<Token> &tokenList) {
         taintToken(token);
     }
 }
+
+
+QList<Token> Wallet::getTokens()
+{
+    return tokenHash.values();
+}

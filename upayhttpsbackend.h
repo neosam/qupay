@@ -10,15 +10,15 @@ class UpayHttpsBackend : public QObject
 {
     Q_OBJECT
 private:
-    QString servername;
+    QString server;
     quint16 port;
 
 public:
     explicit UpayHttpsBackend(QString server, quint16 port, QObject *parent = 0);
 
-    QList<Token> validate(QList<Token> tokens);
-    QList<Token> create(QList<int> valueList);
-    QList<Token> transform(QList<Token> oldTokens, QList<Token> newTokens);
+    QList<Token> validate(const QList<Token> &tokens);
+    QList<Token> create(const QList<int> &valueList);
+    QList<Token> transform(const QList<Token> &oldTokens, const QList<Token> &newTokens);
 
 signals:
 
