@@ -85,7 +85,35 @@ Transaction WalletManager::createTransaction(quint32 value, const QString &comme
 
 bool WalletManager::cashTransaction(const Transaction &transaction)
 {
+    /* First check if all tokens are valid */
+    QList<Token> tokenList = transaction.getTokens();
+    QList<Token> validatedList = upay->validate(tokenList);
+    if (tokenList.size() != validatedList.size()) {
+        /* Some tokens seems to be invalid.  Abort */
+        return false;
+    }
+    Token ownToken = transformTokens(validatedList);
+    if (ownToken == nullToken) {
+        return false;
+    }
+    wallet->addToken(ownToken);
     return true;
+}
+
+Token WalletManager::transformTokens(const QList<Token> &tokenList)
+{
+    QList<int> valueList;
+    int sum = 0;
+    foreach(Token token, tokenList) {
+        sum += token.getValue();
+    }
+    valueList << sum;
+    QList<Token> receivedToken = upay->create(valueList);
+    if (receivedToken.isEmpty()) {
+        return nullToken;
+    }
+    upay->transform(tokenList, receivedToken);
+    return receivedToken[0];
 }
 
 QList<Token> WalletManager::changeToken(const Token &token, quint16 firstValue)

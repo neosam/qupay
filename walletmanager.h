@@ -21,6 +21,7 @@ public:
 
     Transaction createTransaction(quint32 value, const QString &comment = "");
     bool cashTransaction(const Transaction &transaction);
+    Token transformTokens(const QList<Token> &tokenList);
 
 signals:
     void exportedTransaction(const Transaction &transaction);
