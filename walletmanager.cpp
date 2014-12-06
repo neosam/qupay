@@ -14,13 +14,13 @@ Transaction WalletManager::createTransaction(quint32 value, const QString &comme
         return nullTransaction;
     }
 
-    /* Initialize the transaction */
+    /* Initialize the final transaction */
     const QUuid uuid = QUuid::createUuid();
     const QString transactionId = uuid.toString();
     Transaction finalTransaction(transactionId, 0, comment);
 
     /* Create the lists which holds the tokens which are needed to collect the
-     * tokens which are needed for the transaction.  The sum of the transaction
+     * tokens which again are needed for the transaction.  The sum of the transaction
      * values must equal the "value" */
     QList<Token> tokenList = wallet->getTokens();
     QList<Token> transactionTokens;
@@ -42,8 +42,8 @@ Transaction WalletManager::createTransaction(quint32 value, const QString &comme
 
     /* Caluclate the delta between the current collected tokens
      * and "value".  Every entry in leftToken must be bigger than
-     * then this delta.  Change one of the unused tokens into
-     * to have one exact fitting token.
+     * then this delta.  Change one of the unused tokens into two parts
+     * to get one exact fitting left token.
      * If delta equals 0, we can skip this, since we already
      * have the exact matching token value sum.
      */
@@ -56,14 +56,14 @@ Transaction WalletManager::createTransaction(quint32 value, const QString &comme
             return nullTransaction;
         }
 
-        /* Take one token which is unused which must be bigger than "delta".
+        /* Take one token which is unused.  It must be bigger than "delta".
          * We check it anyway and return a nullTransaction if it's smaller. */
         Token anyLeftToken = leftTokens.at(0);
         if (anyLeftToken.getValue() < delta) {
             return nullTransaction;
         }
 
-        /* Split this left token into new token where one of the tokens
+        /* Split this left token into two new tokens where one of the token
          * value equals exactly the "delta".*/
         QList<Token> changedTokens = changeToken(anyLeftToken, delta);
         transactionTokens.append(changedTokens[0]);
