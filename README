@@ -1,0 +1,29 @@
+QUPay - Qt UPay implementation
+==============================
+-- UNTESTED --
+
+Overview
+--------
+This is the implementation of the muccc upay protocol in QT.  It provides
+classes to hold tokens and transction, controller classes to manage
+the wallet and helper classes to communicate with the server and the wallet.
+
+The imlementation is not yet finished.  Especially the part, where the
+IO part should communicate with the server is not implemented yet.  Also
+the wallet does not yet store the data.
+
+
+Compile
+-------
+This is a standard qt project.  You can use qt creator or qmake to build it.
+Currently the build for a Linux Desktop and Android is tested.  Other
+platforms should also work as well.
+
+Please note that you will get "unused parameter" warnings since not
+many features are not implemented yet.
+
+
+Important note
+--------------
+Since server communcation is not yet implemented, most parts of the code
+s completely unstested.
