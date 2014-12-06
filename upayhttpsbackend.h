@@ -6,6 +6,12 @@
 #include <QList>
 #include "token.h"
 
+
+/**
+ * @brief Communication with the upay server.
+ *
+ * Not implemented yet.
+ */
 class UpayHttpsBackend : public QObject
 {
     Q_OBJECT

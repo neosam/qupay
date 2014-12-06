@@ -4,6 +4,9 @@
 #include <QObject>
 #include "wallet.h"
 
+/**
+ * @brief Handles user interaction.
+ */
 class AppController : public QObject
 {
     Q_OBJECT

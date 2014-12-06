@@ -5,6 +5,14 @@
 #include <QSettings>
 #include "wallet.h"
 
+/**
+ * @brief Observer class to save the wallet.
+ *
+ * This class will observe a wallet and store all changes in
+ * a local storage.
+ *
+ * TODO:  This class is not finished.
+ */
 class WalletStorage : public QObject
 {
     Q_OBJECT

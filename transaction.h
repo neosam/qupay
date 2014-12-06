@@ -6,6 +6,17 @@
 #include <QDateTime>
 #include "token.h"
 
+/**
+ * @brief Holds the information needed for a transaction.
+ *
+ * It contains a "hopefully" unique id, the value, a comment and
+ * the tokens which are used for this transaction.  Addtional a timestamp
+ * which stores the creation date.
+ *
+ * The sum of all token values must equal the value of the transaction.
+ *
+ * The value usually is equivalent with euro cents.
+ */
 class Transaction
 {
 private:
