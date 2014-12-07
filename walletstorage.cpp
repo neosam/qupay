@@ -36,8 +36,12 @@ void WalletStorage::readTokens()
     settings->beginGroup("tokens");
     QStringList keys = settings->allKeys();
     foreach (QString key, keys) {
-        readToken(key);
+        Token token = readToken(key);
+        if (!token.isTainted()) {
+            wallet->addToken(token);
+        }
     }
+    settings->endGroup();
 }
 
 Token WalletStorage::readToken(const QString &key)
