@@ -17,15 +17,15 @@ private:
     void initialize();
 public:
     explicit AppController(QObject *parent = 0);
+    inline Wallet *getWallet() const { return wallet; }
 
 signals:
     void objectInitialized();
     void balanceChanged(quint16 newBalance);
 
-private slots:
+public slots:
     void recalculateBalance();
 
-public slots:
     void addToken(const Token &token);
     void taintToken(const Token &token);
 

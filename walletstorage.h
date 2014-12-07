@@ -26,6 +26,9 @@ public:
     explicit WalletStorage(Wallet *wallet, QObject *parent = 0);
     ~WalletStorage();
 
+    void storeToken(const Token &token);
+    QByteArray tokenToJson(const Token &token);
+
 signals:
 
 public slots:
