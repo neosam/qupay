@@ -37,6 +37,8 @@ public:
     inline bool isTainted() const { return tainted; }
     inline void setTainted(bool tainted) { this->tainted = tainted; }
 
+    QByteArray toJson(bool divideByHundred = false, bool noTainted = false);
+
     Token &operator =(const Token &other);
     bool operator ==(const Token &other) const { return token == other.getToken(); }
 };
