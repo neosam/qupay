@@ -18,12 +18,13 @@ signals:
     void newToken(const Token &token);
     void balanceChanged(int balance);
     void taintToken(const Token &token);
+    void removeToken(const Token &token);
 
 public slots:
     void setNewBalance(quint16 balance);
     void addToken();
     void taintToken();
-
+    void removeToken();
 };
 
 #endif // MAINWINDOW_H

@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     QObject::connect(&w, SIGNAL(newToken(Token)), &c, SLOT(addToken(Token)));
     QObject::connect(&w, SIGNAL(taintToken(Token)), &c, SLOT(taintToken(Token)));
+    QObject::connect(&w, SIGNAL(removeToken(Token)), &c, SLOT(removeToken(Token)));
     QObject::connect(&c, SIGNAL(balanceChanged(quint16)), &w, SLOT(setNewBalance(quint16)));
 
     c.recalculateBalance();

@@ -28,6 +28,7 @@ public slots:
 
     void addToken(const Token &token);
     void taintToken(const Token &token);
+    void removeToken(const Token &token);
 
 };
 

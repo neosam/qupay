@@ -28,7 +28,9 @@ void WalletStorage::tokenAdded(const Token &token)
 
 void WalletStorage::tokenRemoved(const Token &token)
 {
-    storeToken(token);
+    settings->beginGroup("tokens");
+    settings->remove(token.getToken());
+    settings->endGroup();
 }
 
 void WalletStorage::tokenTainted(const Token &token)

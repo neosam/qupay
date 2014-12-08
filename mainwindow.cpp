@@ -31,3 +31,12 @@ void MainWindow::taintToken()
     token.setToken(tokenId);
     emit taintToken(token);
 }
+
+void MainWindow::removeToken()
+{
+    qDebug() << "MainWindow::removeToken";
+    QString tokenId = ui.removeTokenField->text();
+    Token token;
+    token.setToken(tokenId);
+    emit removeToken(token);
+}

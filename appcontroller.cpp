@@ -35,3 +35,9 @@ void AppController::taintToken(const Token &token)
     qDebug() << "AppController::taintToken";
     wallet->taintToken(token);
 }
+
+void AppController::removeToken(const Token &token)
+{
+    qDebug() << "AppController::removeToken";
+    wallet->removeToken(token);
+}
