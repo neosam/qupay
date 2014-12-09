@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QString>
 #include <QList>
+#include <QNetworkAccessManager>
 #include "token.h"
 
 
@@ -18,6 +19,7 @@ class UpayHttpsBackend : public QObject
 private:
     QString server;
     quint16 port;
+    QNetworkAccessManager networkAccessManager;
 
 public:
     explicit UpayHttpsBackend(QString server, quint16 port, QObject *parent = 0);
